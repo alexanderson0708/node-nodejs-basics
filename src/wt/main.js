@@ -1,4 +1,3 @@
-import { error } from 'node:console';
 import { cpus } from 'node:os'
 import { dirname} from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,7 +18,7 @@ const performCalculations = async () => {
     }))
     
     const res = resWorker.map( ({status, value}) => ({
-        status: status === 'fulfilled' ? 'resolved' : error,
+        status: status === 'fulfilled' ? 'resolved' : 'error',
         data: status === 'fulfilled' ? value : null
     })) 
     console.log(res);
