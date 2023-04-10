@@ -10,9 +10,6 @@ const copy = async () => {
     const src = getAbsPath(`${FILE_PATH}`)
     const dest = getAbsPath(`${fileName}`)
     try {
-        stat(src, (err) => {
-            console.log(ERROR_MSG);
-        })
         await cp(src, dest, {errorOnExist:true, recursive:true, force:false})
     }catch (err){
         console.log(err);
