@@ -1,5 +1,12 @@
+import {createWriteStream} from 'node:fs'
+const fileName = 'fileToWrite.txt'
+
 const write = async () => {
-    // Write your code here 
+    const getAbsPath = (path) => new URL(path,import.meta.url)
+    const url = getAbsPath(`files/${fileName}`)
+
+    const stream = createWriteStream(url)
+    process.stdin.pipe(stream) 
 };
 
 await write();
